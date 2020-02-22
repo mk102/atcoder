@@ -29,6 +29,5 @@ def main():
     print((p - n_C_a - n_C_b - 1)%m)
     return 0
 
-
 if __name__ == '__main__':
     main()
