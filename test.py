@@ -1,22 +1,21 @@
-def calc_digit(n):
-    digit = 0
-    while n > 0:
-        digit += 1
-        n //= 10
-    return digit
-
 def main():
-    N = int(input())
-    i = 1
-    digit = []
-    ans = 10
-    while i ** 2 <= N:
-        if N % i == 0:
-            tmp = calc_digit(N // i)
-            if ans > tmp:
-                ans = tmp
-        i += 1
-    print(ans)
+    N, M = map(int, input().split())
+    S = []
+    for _ in range(M):
+        S.append(tuple(map(int, input().split())))
+
+    for i in range(0, 10**N):
+        k = str(i)
+        count = 0
+        if len(k) < N:
+            continue
+        for s, c in S:
+            if k[s-1] == str(c):
+                count += 1
+        if count == M:
+            print(i)
+            return 0
+    print(-1)
 
     return 0
 
